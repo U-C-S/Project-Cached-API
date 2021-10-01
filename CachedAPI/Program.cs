@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "CachedAPI", Version = "v1" });
+    c.SwaggerDoc("v1", new()
+    {
+        Title = "CachedAPI",
+        Version = "v1",
+        Description = "Allows the API responses to be cached for a limited time and serve them, instead of exhausting the call limits for third-party APIs"
+    });
 });
 
 var app = builder.Build();
